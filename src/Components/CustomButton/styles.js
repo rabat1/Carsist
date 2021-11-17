@@ -6,7 +6,7 @@ export default StyleSheet.create({
 wrapper:{
     height:42,
     marginVertical:5,
-    borderRadius:5,
+    borderRadius:10,
     alignItems:'center',
     paddingHorizontal:5,
     justifyContent:'space-evenly'

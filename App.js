@@ -11,7 +11,8 @@ import {Text,TouchableOpacity,View} from 'react-native';
 import Input from './src/Components/Input';
 import CustomButton from './src/Components/CustomButton';
 import AppModal from './src/Components/AppModal';
-
+import Expenses from './src/Screens/App/User/Expenses';
+import AuthLoading from './src/Navigation';
 
 const App= () => {
  //this will be required for pwd input
@@ -19,7 +20,6 @@ const App= () => {
   
   return (
     <>
-    <Text>App</Text>
     {/* <Input
     style={{}}
     label="Password"
@@ -59,6 +59,8 @@ primary />
          </View>}
          // modalFooter={<></>}
           /> */}
+          {/* <Home /> */}
+         <AuthLoading />
     </>
 
   );

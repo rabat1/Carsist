@@ -1,8 +1,11 @@
 export default {
-    primary:'orange',
-    secondary:'black',
+    primary:'#1da099',
+    primaryDark:'#105955',
+    secondary:'#0a3533',
     danger:'red',
-    grey:'gray',
+    grey:'grey',
     white:'white',
-    blue:'blue'
+    black:'black',
+    
+    
 }
