@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View } from 'react-native';
 import ServiceExpense from '../../../../Components/ServiceExpense'
 import { CustomHeader } from '../../../../Navigation/CustomHeader';
@@ -7,10 +7,11 @@ const index = () => {
         {
             image_url:
             "https://static.onecms.io/wp-content/uploads/sites/9/2020/04/24/ppp-why-wont-anyone-rescue-restaurants-FT-BLOG0420.jpg",
-           service_name: "Beachside Bar",
-          date: '23/98/1999',
-          mechanic_name: "$$",
-          cost: 1244,
+           service_name: "Service Name",
+          date: 'Date',
+          mechanic_name: "Mechanic name",
+          cost: 12400,
+          odometer:12,
           
         },
         {
@@ -20,6 +21,7 @@ const index = () => {
           date: '23/98/1999',
           mechanic_name: "$$",
           cost: 1245,
+          odometer:12,
         
         },
         {
@@ -29,7 +31,7 @@ const index = () => {
           date: '23/98/1999',
           mechanic_name: "$$",
           cost: 1254,
-        
+          odometer:12,
         },
         {
             image_url:
@@ -38,6 +40,7 @@ const index = () => {
             date: '23/98/1999',
             mechanic_name: "$$",
             cost: 1224,
+            odometer:12,
           
           },
           {
@@ -47,6 +50,7 @@ const index = () => {
             date: '23/98/1999',
             mechanic_name: "$$",
             cost: 12444,
+            odometer:12,
           
           },
           {
@@ -56,16 +60,25 @@ const index = () => {
             date: '23/98/1999',
             mechanic_name: "$$",
             cost: 1246,
-          
+            odometer:12,
           },
            
       ];
-    
+      const [modalVisible,setModalVisible]= useState(false);
+      const [slipData,setSlipData]= useState('');
+
     return (
 <View>    
 <CustomHeader isHome={true} title='Expenses' />
   
-   <ServiceExpense data={expenses} />
+   <ServiceExpense 
+   modalVisible={modalVisible} 
+   setModalVisible={setModalVisible} 
+   data={expenses}
+   slipData={slipData}
+   setSlipData={setSlipData}
+   
+   />
      </View>
     )
 }

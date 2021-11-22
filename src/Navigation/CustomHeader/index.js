@@ -18,7 +18,7 @@ export function CustomHeader(props){
                 </TouchableOpacity>
                 :
                 <TouchableOpacity onPress={()=>goBack()} >
-                     <Icon color={Colors.secondary} type='material' name='home' size={25} style={{padding:10}} />
+                     <Icon color={Colors.secondary} type='ant' name='back' size={25} style={{padding:10}} />
                 </TouchableOpacity>
         
               }

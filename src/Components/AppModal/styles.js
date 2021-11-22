@@ -11,7 +11,7 @@ export default StyleSheet.create({
       modalView: {
         backgroundColor: Colors.white,
         marginHorizontal: 20,
-        borderRadius: 4,
+        borderRadius: 10,
         minHeight: 300,
       },
     
@@ -24,11 +24,13 @@ export default StyleSheet.create({
       },
     
       title: {
-        fontSize: 16,
+        fontSize: 18,
+        color:Colors.secondary,
+        fontWeight:"700",
       },
     
       body: {
-        minHeight: 300,
+        minHeight: 350,
         paddingHorizontal: 20,
         paddingVertical: 10,
       },
@@ -48,8 +50,8 @@ export default StyleSheet.create({
       },
     
       footerSeparator: {
-        height: 0.5,
-        backgroundColor: Colors.grey,
+        height: 1,
+        backgroundColor: Colors.primary,
       },
     
       footerItems: {

@@ -1,37 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { TouchableOpacity,Modal, Text, View, ScrollView } from 'react-native'
 import Icon from '../../Utils/Icon';
 import styles from './styles';
 import PropTypes from 'prop-types'
 import Colors from '../../Utils/Colors';
+import { useNavigation } from '@react-navigation/core';
 
 const AppModal = ({
     modalVisible,
     title,
+    navigateName,
     setModalVisible,
     modalBody,
     modalFooter,
     closeOnTouchOutside
 }) => {
+  const {navigate}= useNavigation();
     return (
         <Modal visible={modalVisible} transparent>
             <TouchableOpacity style={styles.wrapper} 
             onPress={()=>{
-              if(closeOnTouchOutside)
+              if(closeOnTouchOutside){
               setModalVisible(false)
-            
+            {navigateName?navigate(navigateName):null}
+          }
             }}
             >
-                <View style={styles.modalView}>
-                    <ScrollView>
+              <View style={styles.modalView}>
+                <ScrollView>
 
                 <View style={styles.headerModal}>
-                  <TouchableOpacity onPress={()=>setModalVisible(false)}>
-                  <Icon name='right' type='ant' size={17} color={Colors.grey} />  
+                  <TouchableOpacity onPress={()=>{
+                    setModalVisible(false);
+                   navigateName? navigate(navigateName):null;
+                    }}>
+                  <Icon name='cross' type='entypo' size={25} color={Colors.secondary} />  
                   </TouchableOpacity>
                 <Text style={styles.title}>{title || 'Carsist'}</Text>
-                <View />
-                <View />
+                <Icon name='file' />
+                
                 </View>
         
           <View style={styles.footerSeparator} />
