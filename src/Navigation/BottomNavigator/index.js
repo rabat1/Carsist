@@ -8,7 +8,7 @@ import Reminders from '../../Screens/App/User/Remiders';
 import FuelTracker from '../../Screens/App/User/FuelTracker';
 import Icon from '../../Utils/Icon';
 import Colors from '../../Utils/Colors';
-import { ExpenseStack, FuelTrackStack } from '../StackNavigation';
+import { ExpenseStack, FuelTrackStack, ReminderStack } from '../StackNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -75,7 +75,7 @@ export default function HomeTabs() {
       />
       {/* <Tab.Screen  name="UserHistory" component={UserHistory} /> */}
       <Tab.Screen name="FuelTracker" component={FuelTrackStack} />
-      <Tab.Screen name="Remiders" component={Reminders} />
+      <Tab.Screen name="Remiders" component={ReminderStack} />
       <Tab.Screen name="Expenses" component={ExpenseStack} />
       <Tab.Screen name="Docs" component={UserDocument} />
 

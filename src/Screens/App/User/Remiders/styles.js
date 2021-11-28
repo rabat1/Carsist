@@ -1,7 +1,18 @@
 import { StyleSheet } from "react-native"
-import Colors from "../../../../Utils/Colors/index"
+import Colors from "../../../../Utils/Colors"
+import { extendTheme, NativeBaseProvider } from "native-base";
 
-export default StyleSheet.create({
-
-
+const theme = extendTheme({
+  components: {
+    FAB: {
+      baseStyle: {},
+      defaultProps: {
+        colorScheme: Colors.primary,
+      },
+      variants: {},
+      sizes: {},
+    }
+  }
 });
+
+export default theme
