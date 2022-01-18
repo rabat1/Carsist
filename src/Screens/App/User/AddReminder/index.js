@@ -1,20 +1,23 @@
 import React, { useState } from 'react'
-import { View } from 'react-native'
-import { NativeBaseProvider, Box, Alert, Text, Modal, Button } from 'native-base'
+import { View, Text } from 'react-native'
+// import { NativeBaseProvider, Box, Alert, Text, Modal, Button } from 'native-base'
 import { CustomHeader } from '../../../../Navigation/CustomHeader'
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import Colors from '../../../../Utils/Colors';
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import Card from '../../../../Components/Card'
 import DateTimePicker from '@react-native-community/datetimepicker'
+import styles from './styles'
 
 const index = () => {
-  const [date, setDate] = useState(new Date(1637866800000));
+  const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
+  const [text, onChangeText] = useState("");
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    console.log(date);
-    setShow(Platform.OS === 'ios');
+    // setShow(Platform.OS === 'ios');
     setDate(currentDate);
+    console.log(date);
+    console.log(currentDate);
   };
 
   const showDatepicker = () => {
@@ -22,31 +25,40 @@ const index = () => {
   };
 
   return (
-    <NativeBaseProvider>
-      <Box>
-        <CustomHeader title='Add Reminder'>Add Reminder</CustomHeader>
-        <Box>
-          <TouchableOpacity onPress={showDatepicker}>
-            <Text>9.00AM</Text>
-            <Text fontSize="xs">Date</Text>
-          </TouchableOpacity>
-        </Box>
-        <View>
-          {show && (
-            <DateTimePicker
-              testID="dateTimePicker"
-              value={date}
-              mode="date"
-              display="spinner"
-              onChange={onChange}
-            />
-          )}
-        </View>
-        {/* <Modal isOpen={showDatePicker} onClose={() => setIsDateVisible(false)}> */}
+    <View style={styles.base}>
+      <CustomHeader title='Add Reminder'>Add Reminder</CustomHeader>
+      <Card>
+        <TouchableOpacity onPress={showDatepicker}>
+          <Text style={styles.text}>9.00AM</Text>
+        </TouchableOpacity>
+      </Card>
+      <Card>
+        <TouchableOpacity>
+          <Text style={styles.text}>Ring tone</Text>
+          <Text style={styles.text}>chosen ringtone</Text>
+        </TouchableOpacity>
+      </Card>
+      <Card>
+        <TextInput
+          style={styles.text}
+          onChangeText={onChangeText}
+          value={text}
+          placeholder='Label'
+        />
+      </Card>
+      <View>
+        {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode="date"
+            display="spinner"
+            onChange={onChange}
+          />
+        )}
+      </View>
 
-        {/* </Modal> */}
-      </Box>
-    </NativeBaseProvider>
+    </View>
 
   )
 };
